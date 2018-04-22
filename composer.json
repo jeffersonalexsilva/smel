@@ -1,0 +1,17 @@
+{
+	"require" : {
+		"cakephp/cakephp" : "^3.5.*"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"App\\" : [
+				"src",
+				"webroot"
+			]
+		}
+	},
+	"require-dev" : {
+		"cakephp/bake" : "~1.0",
+		"cakephp/debug_kit" : "~3.0"
+	}
+}

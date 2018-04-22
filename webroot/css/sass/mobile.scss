@@ -1,0 +1,198 @@
+$background_color_1: #fff;
+$background_color_2: rgba(0,0,0,0.9);
+
+header#head-page {
+	box-shadow: 0 0 10px #aaa;
+	-o-box-shadow: 0 0 10px #aaa;
+	-webkit-box-shadow: 0 0 10px #aaa;
+}
+header {
+	.top {
+		label.icon-menu {
+			display: inline-block;
+		}
+	}
+	figure.logo-top {
+		width: 55px;
+	}
+	aside#side-menu {
+		position: fixed;
+		top: 45px;
+		left: 0;
+		width: 90%;
+		height: 100%;
+		background-color: $background_color_1;
+		z-index: 90;
+		transform: translateX(-100%);
+		-o-transform: translateX(-100%);
+		-webkit-transform: translateX(-100%);
+		nav {
+			margin: 5px 0;
+			ul {
+				li {
+					a {
+						font-size: 1em;
+						padding: 20px !important;
+						text-align: center;
+						border-bottom: 1px solid #f5f5f5;
+					}
+				}
+			}
+		}
+	}
+	input#ck-menu {
+		&:checked {
+			&+aside#side-menu {
+				transform: translateX(0%);
+				-o-transform: translateX(0%);
+				-moz-transform: translateX(0%);
+				-webkit-transform: translateX(0%);
+			}
+		}
+	}
+}
+ul.oficinas {
+	width: 98%;
+	margin: 0 auto;
+}
+#inscricao {
+	section.usuario {
+		>aside {
+			float: none !important;
+		}
+		.msg-status {
+			float: none !important;
+		}
+	}
+	aside.box-options {
+		.user-box {
+			.left {
+				width: 55%;
+				margin: 0 auto;
+			}
+			text-align: center;
+			figure.avatar {
+				margin: 0 auto;
+			}
+		}
+	}
+	section#lista-oficinas {
+		padding: 0 10px;
+		ul.lista-dias {
+			li {
+				width: 33.3%;
+				float: left;
+				font-size: .6em;
+			}
+		}
+		ul.lista-oficinas-usuario {
+			li {
+				width: 33.3%;
+				float: left;
+				font-size: .6em;
+				width: 50%;
+			}
+		}
+		.painel-listas {
+			min-height: 350px;
+			padding-bottom: 30px;
+			ul.oficinas {
+				li {
+					.painel {
+						.data-hora {
+							display: block;
+						}
+					}
+				}
+			}
+			.descricao {
+				display: block;
+			}
+			.lb-seleciona {
+				label {
+					margin: 0;
+					padding: 5px;
+				}
+				a {
+					margin: 0;
+					padding: 5px;
+				}
+			}
+		}
+		ul.oficinas {
+			li {
+				.painel {
+					.lb-seleciona {
+						text-align: center;
+						bottom: 0;
+					}
+					.data-hora {
+						span.data {
+							padding: 5px;
+							display: inline-block;
+						}
+						.hora {
+							padding: 5px;
+							display: inline-block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+footer.rodape {
+	button#bt_inscreve {
+		width: 80%;
+	}
+}
+#container {
+	#content {
+		.central {
+			min-width: 320px;
+			padding-top: 60px;
+			padding-bottom: 0;
+		}
+	}
+}
+#cadastro {
+	fieldset {
+		form {
+			ul.cad-list {
+				li {
+					ul.cad-list-fields {
+						min-height: 400px;
+					}
+				}
+			}
+		}
+	}
+}
+#painel-usuario {
+	top: 45px;
+}
+label.ico-menu {
+	display: block;
+}
+input#ck-menu {
+	&:checked {
+		&+label.ico-menu {
+			span {
+				position: absolute;
+				top: 10px;
+			}
+		}
+	}
+}
+aside#side-menu {
+	position: fixed;
+	z-index: 50;
+	top: 0;
+	left: 0;
+	background-color: $background_color_2;
+	width: 90%;
+	height: 100%;
+	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+}

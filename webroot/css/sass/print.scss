@@ -1,0 +1,77 @@
+$background_color_1: #fff;
+
+/*print css */
+button {
+	display: none;
+}
+#cont-lista {
+	table {
+		tr {
+			td {
+				input {
+					display: none;
+				}
+				padding: 5px;
+				border-bottom: 1px dotted #000000;
+				border-right: 1px solid #000000;
+				label {
+					display: inline;
+					font-size: 0.8em;
+				}
+				label.lb-ck-listanome {
+					display: none !important;
+				}
+				&:last-child {
+					min-width: 100px;
+				}
+			}
+			th {
+				border-bottom: 2px solid #000000;
+				text-align: left;
+				padding: 5px;
+				&:last-child {
+					min-width: 100px;
+				}
+			}
+		}
+		font-size: 0.8em;
+	}
+}
+header {
+	display: none;
+}
+#form-lista-inscritos {
+	display: none;
+}
+#container {
+	#content {
+		padding-top: 0 !important;
+		.central {
+			padding-top: 0 !important;
+		}
+	}
+}
+#listagem-inscritos {
+	.adiciona-participante {
+		display: none !important;
+	}
+}
+#left {
+	display: none;
+}
+a.ico-add {
+	display: none;
+}
+div.acao {
+	display: none;
+}
+ul {
+	li {
+		background-color: $background_color_1;
+		box-shadown: none !important;
+		border-bottom: 1px solid #333;
+	}
+}
+.search-box {
+	display: none;
+}

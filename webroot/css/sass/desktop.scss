@@ -1,0 +1,40 @@
+
+label.ico-menu {
+	display: none;
+}
+div#page-content {
+	padding: 20px 0;
+	div#painel-login {
+		padding: 20px 0;
+		aside#side-avisos {
+			width: 900px;
+			margin: 10px 0;
+			float: left;
+		}
+		section.painel-login {
+			width: 300px;
+			float: right;
+		}
+	}
+}
+div#content {
+	width: 1200px;
+	margin: 0 auto;
+}
+header#page-header {
+	div#top {
+		width: 1200px;
+		margin: 0 auto;
+	}
+}
+#content {
+	section#list-eventos {
+		ul.events {
+			li {
+				float: left;
+				width: 24%;
+				margin: 0.5%;
+			}
+		}
+	}
+}

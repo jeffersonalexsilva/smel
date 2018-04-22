@@ -1,0 +1,6 @@
+# robots.txt gerado em 
+# marketingdebusca.com.br/robots-txt/
+User-agent: *
+Disallow: 
+Disallow: /inscricoes/listagem
+Disallow: /inscricoes/listagem/lista_inscrito_turma
