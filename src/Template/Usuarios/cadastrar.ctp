@@ -33,8 +33,24 @@
 					</div>
 				</div>
 				<div class="row">
-					<?= $this -> Form -> input('email', array('name' => 'email', "placeholder" => "Email", 'label' => 'Seu melhor e-mail','class'=>'col-6')); ?>
-					<?= $this -> Form -> input('password', array('name' => 'senha', "placeholder" => "Senha/Código", 'label' => 'Uma senha para acesso')); ?>
+					<div class="form-group col-6">
+						<label for="email">Seu e-mail</label>
+						<input id="email" name="email" placeholder="Seu melhor e-mail aqui" class="form-control">
+					</div>
+					<div class="form-group col-6">
+						<label for="email2">Repita seu e-mail</label>
+						<input id="email2" name="email2" placeholder="Repita o e-mail aqui" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-6">
+						<label for="senha">Digite uma senha</label>
+						<input id="senha" name="senha" placeholder="Digite uma senha aqui" class="form-control">
+					</div>
+					<div class="form-group col-6">
+						<label for="senha2">Repita a senha</label>
+						<input id="senha2" name="senha2" placeholder="Repita a senha aqui" class="form-control">
+					</div>
 				</div>
 				<div class="row">
 								
