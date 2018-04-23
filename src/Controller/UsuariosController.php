@@ -9,19 +9,8 @@ use Cake\Routing\Router;
  *
  * @property \App\Model\Table\UsuariosTable $Usuarios
  */
-class UsuariosController extends AppController
-{
+class UsuariosController extends AppController{
 
-    /**
-     * Index method
-     *
-     * @return void
-    public function index()
-    {
-        $this->set('usuarios', $this->paginate($this->Usuarios));
-        $this->set('_serialize', ['usuarios']);
-    }
-     */
     public function index() {
         $this -> loadModel('Perfis');
         $perfis = $this -> Perfis -> find();
@@ -29,6 +18,10 @@ class UsuariosController extends AppController
     }
     
     public function login() {
+        
+    }
+
+    public function cadastrar(){
         
     }
     
