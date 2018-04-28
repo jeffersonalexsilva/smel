@@ -1,7 +1,7 @@
 <?php
 
 //verifica a sessão
-$sessao = $this -> request -> session();
+$sessao = $this -> request -> getSession();
 $nomedosistema = $sessao->check('evento')? $sessao->read('evento')->descricao :'SMEL';
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $nomedosistema = $sessao->check('evento')? $sessao->read('evento')->descricao :'
 		</title>
 		<?= $this -> Html -> meta('icon') ?>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<?= $this -> Html -> css(['vendor/bootstrap/bootstrap.min','custom_style']) ?>
+		<?= $this -> Html -> css(['vendor/bootstrap/bootstrap.min','custom_style.min']) ?>
 		<?= $this -> fetch('meta') ?>
 		<?= $this -> fetch('css') ?>
 	</head>
@@ -26,7 +26,7 @@ $nomedosistema = $sessao->check('evento')? $sessao->read('evento')->descricao :'
 				<?= $this -> fetch('content') ?>
 			</div>
 		</div>
-		<?= $this->Html->script(['jquery-3.2.1.min','bootstrap/popper.min','bootstrap/bootstrap.bundle.min','bootstrap/bootstrap.min','custom_script']); ?>
+		<?= $this->Html->script(['jquery-3.2.1.min','popper.min','bootstrap/bootstrap.bundle.min','bootstrap/bootstrap.min','jquery.mask.min','custom_script']); ?>
 		<?= $this -> fetch('script') ?>
 		<?= $this->element('footer');?>
 	</body>

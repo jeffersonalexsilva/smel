@@ -1,6 +1,9 @@
 {
 	"require" : {
-		"cakephp/cakephp" : "^3.5.*"
+		"cakephp/cakephp" : "^3.5",
+		"holt59/cakephp3-bootstrap-helpers": "dev-master",
+		"twbs/bootstrap":"^4.1",
+		"twbs/bootstrap-sass":"^4.1"
 	},
 	"autoload" : {
 		"psr-4" : {

@@ -1,4 +1,4 @@
-<?php $this -> assign('title',($this->request->session()->check('evento')? $sessao->read('evento')->descricao :'SMEL'));?>
+<?php $this -> assign('title',($this->request->getSession()->check('evento')? $sessao->read('evento')->descricao :'SMEL'));?>
 <section class="row">
 	<div class="col-12">
 		<h1 class="col-12 title">Eventos ativos</h1>

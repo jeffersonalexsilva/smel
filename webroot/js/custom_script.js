@@ -3,6 +3,10 @@ var ids_data;
 var base_site = '/'; //DEV
 jQuery(document).ready(function(){
 	
+	jQuery('#cpf').mask('000.000.000-00');
+	jQuery('.cell').mask('(00) 0 0000-0000');
+	jQuery('.phone').mask('(00) 0000-0000');
+
 	jQuery('#form-cadastro button.cadastrar-participante').on('click',function(e){
 		cadastra_participante();
 		e.preventDefault();

@@ -58,7 +58,7 @@ class UsuariosTable extends Table
             ->setForeignKey('usuarios_idusuario')
             ->setTargetForeignKey('oficina_cursos_idoficina_curso')
             ->joinTable('instrutores_oficinas');
-         */
+         
         $this->hasOne('Perfis')
             ->setForeignKey('perfil_idperfil');
         
@@ -72,7 +72,7 @@ class UsuariosTable extends Table
             ->setClassName('OficinaCursos')
             ->setForeignKey('usuarios_idusuario');
         
-        
+        */
        
     }
 

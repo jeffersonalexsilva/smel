@@ -22,7 +22,11 @@ class UsuariosController extends AppController{
     }
 
     public function cadastrar(){
-        
+        $this -> loadModel('Usuarios');
+        $this -> loadModel('MaisInfos');
+        $this -> loadModel('Perfis');
+        $perfis = $this -> Perfis -> find();
+        $this -> set('perfis', $perfis);
     }
     
     public function cadastra() {
