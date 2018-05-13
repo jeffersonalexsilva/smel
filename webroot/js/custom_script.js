@@ -3,9 +3,25 @@ var ids_data;
 var base_site = '/'; //DEV
 jQuery(document).ready(function(){
 	
-	jQuery('#cpf').mask('000.000.000-00');
+	jQuery('#cpf').mask('00000000000');
 	jQuery('.cell').mask('(00) 0 0000-0000');
 	jQuery('.phone').mask('(00) 0000-0000');
+
+	/* jQuery('#form-cadastro input').on('keyup',function(e){
+		_inputs = jQuery('#form-cadastro').find('input');
+		console.log(_inputs);
+		_hascontent = true;
+		_inputs.each(function(index){
+			// console.log(jQuery(this));
+			if(jQuery(this).value() != ''){
+				_hascontent  = false;
+			}
+		});
+		if(_hascontent){
+			jQuery('button[type="submit"]').attr('disabled',false);
+		}
+		e.preventDefault();
+	}); */
 
 	jQuery('#form-cadastro button.cadastrar-participante').on('click',function(e){
 		cadastra_participante();

@@ -73,6 +73,21 @@ class UsuariosTable extends Table
             ->setForeignKey('usuarios_idusuario');
         
         */
+        $this->belongsTo('Info', [
+            'className' => 'MaisInfos',
+            'foreignKey' => 'idusuario',
+            'bindingKey' => 'usuario_idusuario'
+        ]);
+        $this->hasOne('Perfis', [
+            'className' => 'Perfis',
+            'foreignKey' => 'perfil_idperfil'
+            ]);
+            
+        $this->belongsToMany('Cursos', [
+            'className' => 'OficinaCursoHasUsuario',
+            'foreignKey' => 'usuario_idusuario',
+            'targetForeignKey' => 'oficina_curso_idoficina_curso',
+        ]);
        
     }
 

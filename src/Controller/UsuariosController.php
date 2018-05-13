@@ -21,99 +21,75 @@ class UsuariosController extends AppController{
         
     }
 
-    public function cadastrar(){
+    // public function cadastrar(){
+    //     $this -> loadModel('Usuarios');
+    //     $this -> loadModel('MaisInfos');
+    //     $this -> loadModel('Perfis');
+    //     $perfis = $this -> Perfis -> find();
+    //     $this -> set('perfis', $perfis);
+    // }
+    
+    public function cadastrar() {
         $this -> loadModel('Usuarios');
         $this -> loadModel('MaisInfos');
         $this -> loadModel('Perfis');
         $perfis = $this -> Perfis -> find();
         $this -> set('perfis', $perfis);
-    }
-    
-    public function cadastra() {
-        $this->viewBuilder ()->setLayout ( 'ajax' );
-        $evento = $this -> request -> getSession()-> read('evento_atual');
         if ($this -> request -> is('post')) {
             $data = $this -> request -> getData();
-            // print_r($data);
-            //recuperando os models
-            $this -> loadModel('Usuarios');
-            $this -> loadModel('MaisInfos');
-            
-            ///verifica se ele já se cadastrou antes. Primeiro com esse mesmo e-mail
-            $query = $this -> Usuarios -> find('all', array('conditions' => array('Usuarios.email' => $data['email'])));
+            ///verifica se ele já se cadastrou antes. Primeiro com esse mesmo e-mail ou CPF
+            $query = $this -> Usuarios -> find('all', array('conditions' => array('or'=> array(
+                array('Usuarios.email' => $data['email'],'Usuarios.cpf' => $data['cpf'])
+            ))));
             $row = $query -> first();
             if (!empty($row)) {
-                echo 'error#Eita, encontrei uma inscrição feita com esse mesmo e-mail. Tenta recuperar a senha lá na tela de login';
+                $this->Flash->error('Já existe um cadastro com esse email. Caso não lembre sua senha, clique em "Esqueci a Senha" e siga as instruções.', ['key' => 'msg']);
             } else {
-                //agora verifica se esse CPF já existe no sistema
-                $query = $this -> Usuarios -> find('all', array('conditions' => array('Usuarios.cpf' => $data['cpf'])));
-                $row = $query -> first();
-                if (!empty($row)) {
-                    echo 'error#Eita, encontrei uma inscrição feita com esse mesmo CPF. Tenta recuperar a senha lá na tela de login';
-                } else {
-                    try{
-                        $usuario = $this -> Usuarios -> newEntity();
-                        $mais_info = $this -> MaisInfos -> newEntity();
-                        //Contrói o usuário
-                        $usuario -> nome = $data['nome'];
-                        //retira os pontos e o traço do CPF
-                        $novo = str_replace(".", "", $data['cpf']);
-                        $novo = str_replace("-", "", $novo);
-                        $usuario -> cpf = trim($novo);//salva o cpf limpo
-                        $usuario -> email = $data['email'];
-                        $usuario -> senha = md5($data['senha']);
-                        $usuario -> token = md5(time() + $data['senha']);
-                        $usuario -> sexo = $data['sexo'];
-                        $usuario -> cidade = $data['cidade'];
-                        $usuario -> uf = $data['uf'];
-                        $usuario -> endereco = $data['endereco'];
-                        $usuario -> telefone = $data['telefone'];
-                        $usuario -> perfil_idperfil = $data['perfil'];
-                        $usuario -> admin = 0;
-                        // print_r($usuario);
-                        //salva o usário
-                        $this -> Usuarios -> save($usuario);
-                        //Monta as informações extras
-                        $mais_info -> tipo_graduacao = $data['tipo-grad'];
-                        $mais_info -> curso = (!empty($data['curso-discente']) ? $data['curso-discente'] : $data['curso-docente']);
-                        $mais_info -> periodo_ano = $data['ano-entrada'];
-                        $mais_info -> periodo_entrada = $data['numero-entrada'];
-                        $mais_info -> departamento_nucleo = $data['depto_nucleo'];
-                        $mais_info -> siape = $data['siape'];
-                        $mais_info -> setor = $data['setor'];
-                        $mais_info -> funcao = $data['funcao'];
-                        $mais_info -> instituicao = (!empty($data['instituicao']) ? $data['instituicao'] : $data['inst_origem']);
-                        $mais_info -> usuario_idusuario = $usuario -> idusuario;
-                        //salva as informações complementares
-                        $this -> MaisInfos -> save($mais_info);
+                try{
+                    $usuario = $this -> Usuarios -> newEntity();
+                    $mais_info = $this -> MaisInfos -> newEntity();
+                    //Contrói o usuário
+                    $usuario -> nome = $data['nome'];
+                    //retira os pontos e o traço do CPF
+                    $novo = str_replace(".", "", $data['cpf']);
+                    $novo = str_replace("-", "", $novo);
+                    $usuario -> cpf = trim($novo);//salva o cpf limpo
+                    $usuario -> email = $data['email'];
+                    $usuario -> senha = md5($data['senha']);
+                    $usuario -> token = md5(time() + $data['senha']);
+                    $usuario -> sexo = $data['sexo'];
+                    $usuario -> perfil_idperfil = $data['perfil'];
+                    $usuario -> admin = 0;
+                    // print_r($usuario);
+                    //salva o usário
+                    if($this -> Usuarios -> save($usuario)){
+                        $this->Flash->success("Beleza... Agora você já está cadastrado(a) no sistema.", ['key' => 'msg']);
+                        $usuario_logado = $this -> Usuarios ->get($usuario->idusuario,['contain'=> ['Info','Perfis','Cursos']]);
+                        $this -> request -> getSession()->write('usuario', $usuario_logado);
+                        $this->redirect(['controller' => 'Inscricoes']);
+                        
+
                         //enviando um email
                         /* $headers = "MIME-Version: 1.1\n";
-                         $headers .= "Content-type: text/html; charset=utf-8\n";*/
-                        $assunto = "Seu cadastro no {$evento->descricao}";
-                        $mensagem = 'Olá ' . $usuario -> nome . ', <br />Seu cadastro no '.$evento->descricao.' foi realizado com sucesso. Confira os seus dados de acesso abaixo:<br />';
+                        $headers .= "Content-type: text/html; charset=utf-8\n";*/
+                        $assunto = "Seu cadastro no Sistema de Inscrições";
+                        $mensagem = 'Olá ' . $usuario -> nome . ', <br />Seu cadastro no Sistema de Eventos foi realizado com sucesso. Confira os seus dados de acesso abaixo:<br />';
                         $mensagem .= 'E-mail cadastrado: ' . $usuario -> email . '<br /><br />';
-                        $mensagem .= 'USE O LINK ABAIXO PARA RECUPERAR SUA SENHA<br />';
-                        $mensagem .= 'http://'. $evento->site_evento .'/cadastro_usuarios/geranovasenha/'.$usuario->token.'/'.$usuario->email.'<br />';
-                        $mensagem .= '---------------------------------------------------<br />';
-                        $mensagem .= 'Em caso de dúvida ou se precisar de ajuda, entre em contato com '.$evento->email_evento.'<br />';
-                        $mensagem .= '<br /><br />Att--<br /> Equipe da Coordenação<br />'. $evento->descricao.'<br />';
-                        $mensagem .= $evento->site_evento;
                         //Envia esse e-mail para o usuário
                         
                         $email = new Email('default');
                         $email->setEmailFormat('html');
-                        $email->setFrom(['ola@integracaa.tk' => $evento->descricao]);
-                        $email->setReplyTo($evento->email_evento);
+                        $email->setFrom(['naoresponda@quimicacaaufpe.tk' => 'Lic. em Química -UFPE/CAA']);
+                        // $email->setReplyTo($evento->email_evento);
                         $email->setTo($usuario -> email);
                         $email->setSubject($assunto);
-                        $email->send($mensagem);
-                        echo 'success#Beleza... Agora você já está cadastrado(a) no sistema...<br />Redirecionando para a inscrição';
-                        $usuario_logado = $this -> Usuarios ->get($usuario->idusuario,['contain'=> ['Info','Perfis','Cursos']]);
-                        $sessao = $this -> request -> getSession()->write('usuario', $usuario_logado);
-                        
-                    }catch(\Exception $e){
-                        echo "error#Ocorreu um problema: {$e->getMessage()}";
+                        if(!$email->send($mensagem)){
+                            $this->Flash->error("Ocorreu um erro ao enviar o email de confirmação.", ['key' => 'msg']);
+                        }
                     }
+                    
+                }catch(\Exception $e){
+                    $this->Flash->error("Ocorreu um problema: {$e->getMessage()}", ['key' => 'msg']);
                 }
             }
             

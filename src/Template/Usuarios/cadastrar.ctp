@@ -1,5 +1,10 @@
-<?php $this -> assign('title', 'Cadastro de Usuário');?>
-	<div class="row justify-content-center">
+<?php if($this -> request -> getSession()->check('usuario')){?>
+	<script>
+		window.location.href = '/inscricoes';
+	</script>
+<?php }
+ $this -> assign('title', 'Cadastro de Usuário');?>
+	<div class="row justify-content-center cad-user">
 		<div class="col-sm-12 col-md-10 col-lg-8">
 			<?= $this->Form->create(null, ['url'=>['controller'=>'Usuarios','action'=>'cadastrar'],'type' => 'file','class'=>'form-group','id'=>'form-cadastro']);?>
 			<?php $myTemplates = ['inputContainer' => '<div class="form-group mb-1 {{type}}{{required}}">{{content}}</div>'];
@@ -7,12 +12,12 @@
 				<div class="form-row">
 					<h3 class="col-sm-12">Cadastro de usuário</h3>
 					<div class="form-group col-sm-6">
-						<label for="nome">Seu nome</label>
+						<label for="nome">Seu nome<span class="required">*</span></label>
 						<input type="text" name="nome" placeholder="Nome Completo" class="form-control" required>
 					</div>
 					<div class="form-group col-sm-6">
-						<label for="cpf">Seu CPF</label>
-						<input type="text" name="cpf" placeholder="CPF" class="form-control" id="cpf" required>
+						<label for="cpf">Seu CPF<span class="required">*</span></label>
+						<input type="number" name="cpf" placeholder="CPF" class="form-control" id="cpf" required>
 					</div>
 				</div>
 				<div class="form-row">
@@ -31,22 +36,22 @@
 						</div>
 					</div>
 					<div class="form-group col-sm-6">
-						<label for="email">Seu e-mail</label>
-						<input type="email" id="email" name="email" placeholder="Seu melhor e-mail aqui" class="form-control">
+						<label for="email">Seu e-mail<span class="required">*</span></label>
+						<input type="email" name="email" placeholder="Seu melhor e-mail aqui" class="form-control">
 					</div>
 					<div class="form-group col-sm-6">
-						<label for="email2">Repita seu e-mail</label>
-						<input type="email" id="email2" name="email2" placeholder="Repita o e-mail aqui" class="form-control">
+						<label for="email2">Repita seu e-mail<span class="required">*</span></label>
+						<input type="email" name="email2" placeholder="Repita o e-mail aqui" class="form-control">
 					</div>
 				</div>
 				<div class="form-row">
 					<div class="form-group col-sm-6">
-						<label for="senha">Digite uma senha</label>
-						<input type="password" id="senha" name="senha" placeholder="Digite uma senha aqui" class="form-control">
+						<label for="senha">Digite uma senha<span class="required">*</span></label>
+						<input type="password" name="senha" placeholder="Digite uma senha aqui" class="form-control">
 					</div>
 					<div class="form-group col-sm-6">
-						<label for="senha2">Repita a senha</label>
-						<input type="password" id="senha2" name="senha2" placeholder="Repita a senha aqui" class="form-control">
+						<label for="senha2">Repita a senha<span class="required">*</span></label>
+						<input type="password" name="senha2" placeholder="Repita a senha aqui" class="form-control">
 					</div>
 				</div>
 				<div class="form-row">

@@ -27,6 +27,9 @@ header .banner .carousel-control-prev, header .banner .carousel-control-next {
 header #login {
   min-width: 250px; }
 
+span.required {
+  color: red; }
+
 ul.events li.event:hover {
   box-shadow: 0 0.2rem 0.35rem rgba(0, 0, 0, 0.3) !important;
   -webkit-box-shadow: 0 0.2rem 0.35rem rgba(0, 0, 0, 0.3) !important;
