@@ -18,7 +18,22 @@ class UsuariosController extends AppController{
     }
     
     public function login() {
-        
+        if ($this -> request -> is('post')) {
+            $data = $this -> request -> getData();
+            $this -> loadModel('Usuarios');
+            $this -> loadModel('MaisInfos');
+            $this -> loadModel('Perfis');
+            $query = $this -> Usuarios -> find('all', array('conditions' => array('Usuarios.email' => $data['email'],'Usuarios.senha' => md5($data['senha'])),
+                ['contain'=> ['Info','Perfis','Cursos']]));
+            $usuario_logado = $query -> first();
+            if($usuario_logado){
+                $this -> request -> getSession()->write('usuario', $usuario_logado);
+                $this->redirect(['controller' => 'Inscricoes']);
+            }else{
+                $this->Flash->error('Usuário não encontrado. Verifique se o e-mail e senha ou clique em "Esqueci a senha" para recuperar o acesso', ['key' => 'msg']);
+                $this->redirect(['controller' => 'Pages']);
+            }
+        }
     }
 
     // public function cadastrar(){

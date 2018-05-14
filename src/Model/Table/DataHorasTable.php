@@ -49,8 +49,7 @@ class DataHorasTable extends Table
         
         //muitas datas para muitos monitores, marcando presença
         $this->belongsToMany('MonitoresEventos')
-            ->setForeignKey('data_horas_iddata_hora')
-            ->setJoinTable('presenca_monitores');
+            ->setForeignKey('data_horas_iddata_hora');
         
     }
 

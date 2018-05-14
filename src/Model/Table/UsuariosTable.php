@@ -38,41 +38,7 @@ class UsuariosTable extends Table
         $this->setPrimaryKey('idusuario');
 
         $this->addBehavior('Timestamp');
-/* 
-        $this->belongsToMany('Professores')
-            ->setForeignKey('usuarios_idusuario')
-            ->setTargetForeignKey('professores_idprofessores')
-            ->joinTable('usuarios_professores');
-        
-        $this->belongsToMany('Inscricoes')
-            ->setForeignKey('usuario_idusuario')
-            ->setTargetForeignKey('oficina_curso_idoficina_curso')
-            ->joinTable('oficina_curso_has_usuario');
-        
-        $this->belongsToMany('Monitorias')
-            ->setForeignKey('usuarios_idusuario')
-            ->setTargetForeignKey('eventos_idevento')
-            ->joinTable('monitores_eventos');
-        
-        $this->belongsToMany('InstrutorOficina')
-            ->setForeignKey('usuarios_idusuario')
-            ->setTargetForeignKey('oficina_cursos_idoficina_curso')
-            ->joinTable('instrutores_oficinas');
-         
-        $this->hasOne('Perfis')
-            ->setForeignKey('perfil_idperfil');
-        
-        $this->belongsTo('MaisInfos')
-            ->setForeignKey('usuario_idusuario');
-        
-        $this->hasMany('LogAcessos')
-            ->setForeignKey('usuario_idusuario');
-        
-        $this->hasMany('ResponsavelOficina')
-            ->setClassName('OficinaCursos')
-            ->setForeignKey('usuarios_idusuario');
-        
-        */
+   
         $this->belongsTo('Info', [
             'className' => 'MaisInfos',
             'foreignKey' => 'idusuario',

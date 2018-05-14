@@ -9,7 +9,9 @@
 		</div>
 	</nav>
 	<!--/. Sidebar navigation -->
+	<?php if(!$this->request->getSession()->check('usuario')){ ?>
 	<div class="banner">
 		<?= $this->element('side_banner_home') ?>
 	</div>
+	<?php } ?>
 </header>
