@@ -9,9 +9,14 @@
 		</div>
 	</nav>
 	<!--/. Sidebar navigation -->
-	<?php if(!$this->request->getSession()->check('usuario')){ ?>
 	<div class="banner">
-		<?= $this->element('side_banner_home') ?>
+		<?php
+		//lista de eventos
+		if(isset($eventos)){
+			echo $this->element('side_banner_home',['eventos' => $eventos]);
+		}else if(isset($evento)){
+			//evento único
+			echo $this->element('side_banner_evento', ['evento' => $evento]);
+		} ?>
 	</div>
-	<?php } ?>
 </header>

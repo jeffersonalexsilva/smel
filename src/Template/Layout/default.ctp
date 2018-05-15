@@ -22,7 +22,7 @@ $nomedosistema = $sessao->check('evento')? $sessao->read('evento')->descricao :'
 		<?= $this -> fetch('css') ?>
 	</head>
 	<body class="fixed-sn white-skin">
-		<?= $this->element('header');?>
+	<?= $this->element('header');?>
 		<div class="container">
 		<div class="alerts-box"><?= $this->Flash->render('msg') ?></div>
 			<div class="row mt-5 pt-2">
