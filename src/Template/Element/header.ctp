@@ -8,15 +8,5 @@
 			<?= $this->element('side_menudefault') ?>
 		</div>
 	</nav>
-	<!--/. Sidebar navigation -->
-	<div class="banner">
-		<?php
-		//lista de eventos
-		if(isset($eventos)){
-			echo $this->element('side_banner_home',['eventos' => $eventos]);
-		}else if(isset($evento)){
-			//evento único
-			echo $this->element('side_banner_evento', ['evento' => $evento]);
-		} ?>
-	</div>
+	<!--/. Sidebar navigation -->	
 </header>

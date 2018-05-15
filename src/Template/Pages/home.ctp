@@ -1,4 +1,7 @@
 <?php $this -> assign('title',($this->request->getSession()->check('evento')? $sessao->read('evento')->descricao :'SMEL'));?>
+<div class="banner">
+		<?= $this->element('side_banner_home',['eventos' => $eventos]);?>
+	</div>
 <section class="row">
 	<div class="col-12">
 		<h1 class="col-12 title">Eventos ativos</h1>
