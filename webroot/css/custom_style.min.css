@@ -121,6 +121,10 @@ section#home ul.events .card-footer a {
   text-align: right; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .lb-seleciona label {
   display: block; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer {
+  padding: 5px 10px; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer a.arrow {
+  display: block; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer .foot-detail {
   font-size: 0.8em; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer .foot-detail div {

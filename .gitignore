@@ -16,3 +16,4 @@
 tmp/*
 webroot/node_modules/*
 tmp/*
+tmp/debug_kit.sqlite

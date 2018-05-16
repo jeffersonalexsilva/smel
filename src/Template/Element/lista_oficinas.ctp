@@ -49,7 +49,7 @@
 							<?php } ?>
 						</div>
 						<div class="card-footer detalhes">
-							<?= $this->Html->link($this->Html->image('icon-down-arrow.svg',['alt'=>'Detalhes']),'#detalhe-'.$oficina->idoficina_curso,['data-toggle'=>'collapse','aria-expanded'=>'false','aria-controls'=>'detalhe-'.$oficina->idoficina_curso,'escape'=>false]);?>
+							<?= $this->Html->link($this->Html->image('icon-down-arrow.svg',['alt'=>'Detalhes']),'#detalhe-'.$oficina->idoficina_curso,['data-toggle'=>'collapse','aria-expanded'=>'false','aria-controls'=>'detalhe-'.$oficina->idoficina_curso,'class'=>'arrow','escape'=>false]);?>
 							<div class="collapse foot-detail" id="detalhe-<?= $oficina->idoficina_curso;?>">
 								<div class="resumo"><strong>Resumo:</strong> <?= $oficina->resumo;?></div>
 								<div class="observacao"><strong>Observações:</strong> <?= $oficina->observacao;?></div>

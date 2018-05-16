@@ -155,6 +155,10 @@ section#home{
                                 }
                             }
                             .card-footer{
+                                padding: 5px 10px;
+                                a.arrow{
+                                    display: block;
+                                }
                                 .foot-detail{
                                     font-size: $font_size_default - 0.2;
                                     div{
