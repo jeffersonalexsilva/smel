@@ -47,18 +47,14 @@ class OficinaCursoHasUsuarioTable extends Table
         ->setForeignKey('data_horas_iddata_hora')
         -setJoinType('INNER'); */
 
-        $this->belongsTo('Usuarios', [
-            'className' => 'Usuarios',
-            'foreignKey' => 'usuario_idusuario'
-        ]);
-        $this->belongsTo('Cursos', [
-            'className' => 'Cursos',
-            'foreignKey' => 'oficina_curso_idoficina_curso'
-        ]);
-        $this->belongsTo('DatasHoras', [
-            'className' => 'DatasHoras',
-            'foreignKey' => 'data_horas_iddata_hora'
-        ]);
+        $this->belongsTo('Usuarios')
+            ->setForeignKey('usuario_idusuario');
+
+        $this->belongsTo('OficinaCursos')
+            ->setForeignKey('oficina_curso_idoficina_curso');
+        
+        $this->belongsTo('DataHoras')
+            ->setForeignKey('data_horas_iddata_hora');
     }
 
     /**

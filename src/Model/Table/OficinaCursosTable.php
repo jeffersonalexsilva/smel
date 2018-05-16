@@ -39,40 +39,34 @@ class OficinaCursosTable extends Table
         $this->addBehavior('Timestamp');
         
         //associtaions
-        $this->hasMany('OficinasDependentes')
-            ->setClassName('OfcinaCursos')
-            ->setForeignKey('oficina_dependente');
         
         $this->belongsTo('OficinaMestre')
-            ->setClassName('OfcinaCursos')
             ->setForeignKey('oficina_dependente');
         
         $this->hasOne('DataHoras')
-            ->setForeignKey('data_hora_iddata_hora');
+            ->setForeignKey('iddata_hora');
         
         $this->hasOne('Eventos')
             ->setForeignKey('eventos_idevento');
         
         $this->hasOne('StatusOficinas')
-            ->setForeignKey('status_oficinas_idstatus_oficinas');
+            ->setForeignKey('idstatus_oficinas');
         
         $this->hasOne('Salas')
             ->setForeignKey('salas_idsalas');
         
         $this->hasOne('TipoOficinas')
-            ->setForeignKey('tipo_oficina_idtipo_oficina');
+            ->setForeignKey('idtipo_oficina');
         
         $this->hasOne('Responsavel')
-            ->setClassName('Usuarios')
             ->setForeignKey('usuarios_idusuario');
         
-        $this->belongsToMany('Inscritos')
-            ->setForeignKey('oficina_curso_idoficina_curso')
-            ->setJoinTable('oficina_curso_has_usuario');
+        // $this->belongsToMany('Inscritos')
+        //     ->setForeignKey('oficina_curso_idoficina_curso')
+        //     ->joinTable('oficina_curso_has_usuario');
         
-        $this->belongsToMany('Instrutores')
-            ->setForeignKey('oficina_curso_idoficina_curso')
-            ->setJoinTable('instrutores_oficinas');
+        $this->belongsToMany('Instrutores',['joinTable'=> 'instrutores_oficinas'])
+            ->setForeignKey('oficina_curso_idoficina_curso');
         
     }
 

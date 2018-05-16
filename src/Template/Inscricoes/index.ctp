@@ -1,15 +1,10 @@
 <?php 
-$evento = $this -> request -> session()-> read('evento_atual');
-$this -> assign('title', $evento->descticao . ' | Inscrições');
 
-if(($this -> request -> session()->check('usuario'))){
-	$usuario = $this -> request -> session() -> read('usuario');
+if(($this -> request -> getSession()->check('usuario'))){
+	$usuario = $this -> request -> getSession() -> read('usuario');
 ?>
 <div id="inscricao" class="central">
 		<h1 class="title">Lista de atividades</h1>
-		<div class="messages">
-			<span class="content-msg"></span>
-		</div>
 	<section class="conteudo">
 		<?php if(strtotime($evento->data_hora_inicio_inscricao) > time() && !$usuario->admin){?>
 				<div class="embreve">

@@ -12,6 +12,23 @@
 		<a class="nav-link" href="#">Sobre</a>
 	</li>
 </ul>
+<?php if($this->request->getSession()->check('usuario')){ ?>
+<ul class="nav justify-content-end">
+	<li class="nav-item dropdown">
+		<a href="#" class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<i class="fa fa-user px-2"></i>Minha Conta
+		</a>
+		<div class="dropdown-menu py-0 dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+			<ul class="nav">
+				<li class="nav-item"><a href="#" class="nav-link">Editar perfil</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Minhas inscrições</a></li>
+				<li class="nav-item"><a href="#" class="nav-link">Sair</a></li>
+			</ul>
+		</div>
+	</li>
+</ul>
+
+<?php }else{ ?>
 <ul class="nav justify-content-end">
 	<li class="nav-item">
 		<?= $this->Html->link('Cadastrar',['controller' => 'Usuarios','action' => 'cadastrar'],['class'=>'nav-link']); ?>
@@ -43,3 +60,4 @@
 		</div>
 	</li>
 </ul>
+<?php } ?>

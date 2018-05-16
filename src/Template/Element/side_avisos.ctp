@@ -1,4 +1,4 @@
-<?php $avisos = $this -> request -> session() -> read('avisos'); ?>
+<?php $avisos = $this -> request ->getSession() -> read('avisos'); ?>
 <aside id="side-avisos" class="side widget">
 	<div class="avisos">
     	<h2 class="sub-title">Avisos</h2>

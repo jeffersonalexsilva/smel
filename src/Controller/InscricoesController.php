@@ -16,7 +16,6 @@ class InscricoesController extends AppController {
 	public function index() {
 		//pega o usuário da sessão
 		$usuario = $this -> request -> getSession()-> read('usuario');
-		$evento = $this -> request -> getSession() -> read('evento_atual');
 		if(!is_null($usuario)){
 			//busca as informações extras, dos cursos que já se matriculou
 			$this -> loadModel('OficinaCursoHasUsuario');
@@ -182,7 +181,7 @@ class InscricoesController extends AppController {
 			$query_oc = $this -> OficinaCursos -> find();
 			$cursos = $query_oc -> toArray();
 			$ok = false;
-			// foreach($data['oficina'] as $idoficina){
+			foreach($data['oficina'] as $idoficina){
 				$query_ofhu = $this -> OficinaCursoHasUsuario ->query();
 				$query_ofhu->delete();
 				$query_ofhu->where(['oficina_curso_idoficina_curso'=>$data['oficina'],'usuario_idusuario'=>$usuario->idusuario]);
@@ -201,7 +200,7 @@ class InscricoesController extends AppController {
 					break;
 				}
 				unset($query);
-			// }
+			}
 			$this -> set('msg', 'Opa... Beijo e XAU para essa(s) oficina(s).');
 		}
 	}
