@@ -1,0 +1,41 @@
+// Font details
+$font_size_default: 1em;
+$light: 300;
+$bold: 700;
+$color_font : #333;
+$white: #f9f9f9;
+
+// Geral
+$bg_color: rgba(255,255,255,0.8);
+$gray: #b2b2b2;
+$light_gray: #e5e5e5;
+
+// Card
+$bg_data: #2F80ED;
+$bg_data_end: #EB5757;
+$bg_data_warning: #F2C94C;
+
+// Mixins
+@mixin linear-gradient(){
+    background-image: linear-gradient(90deg, rgba(0,0,0,0.8) , rgba(0,0,0,0.1));
+    background-image: -webkit-linear-gradient(90deg, rgba(0,0,0,0.8) , rgba(0,0,0,0.1));
+    background-image: -moz-linear-gradient(90deg, rgba(0,0,0,0.8) , rgba(0,0,0,0.1));
+    background-image: -ms-linear-gradient(90deg, rgba(0,0,0,0.8) , rgba(0,0,0,0.1));
+}
+@mixin box-shadow(){
+    box-shadow: 0 .2rem .35rem rgba(0,0,0,.3) !important;
+    -webkit-box-shadow: 0 .2rem .35rem rgba(0,0,0,.3) !important;
+    -moz-box-shadow: 0 .2rem .35rem rgba(0,0,0,.3) !important;
+    -ms-box-shadow: 0 .2rem .35rem rgba(0,0,0,.3) !important;
+}
+
+
+body{
+    font-family: 'Quicksand', sans-serif;
+    font-size: $font_size_default;
+    color: $color_font;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: $bold;
+}

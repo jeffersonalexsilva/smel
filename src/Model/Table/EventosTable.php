@@ -49,8 +49,9 @@ class EventosTable extends Table
         $this->hasMany('Avisos')
         ->setForeignKey('eventos_idevento');
         
-        $this->hasMany('DatasHoras')
-        ->setForeignKey('eventos_idevento');
+        $this->hasMany('DataHoras')
+        ->setForeignKey('eventos_idevento')
+        ->setDependent(true);;
 
         $this->belongsToMany('Monitores',['joinTable'=>'monitores_eventos'])
             ->setForeignKey('eventos_idevento')

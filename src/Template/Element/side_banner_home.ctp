@@ -1,11 +1,11 @@
 <div id="carousel_banner" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
-<?php foreach($eventos as $key => $e){ ?>
+    <?php foreach($eventos as $key => $e){ ?>
         <div class="carousel-item <?= $key == 0?'active':'' ?>">
-            <?= $this->Html->image('banners/news/banner-'.$e->slug.'.jpg', ['alt' => $e->descricao,'class'=>'img-fluid d-block w-100']); ?>
+            <?= $this->Html->image('banners/news/banner-'.$e->slug.'.jpg', ['alt' => $e->titulo,'class'=>'img-fluid d-block w-100']); ?>
             <div class="carousel-caption d-none d-md-block">
-                <h4><?= $e->descricao; ?></h4>
-                <p>Saiba mais <?= $this->Html->link('Aqui',['controller' => 'eventos','action' => 'e',$e->slug],['class'=>'btn btn-sm px-3 btn-light']); ?></p>
+                <h4><?= $e->titulo; ?></h4>
+                <p><?= substr($e->descricao, 0, 50);?> <?= $this->Html->link('Veja mais aqui',['controller' => 'eventos','action' => 'e',$e->slug],['class'=>'btn btn-sm px-3 btn-light']); ?></p>
             </div>
         </div>
     <?php } ?>

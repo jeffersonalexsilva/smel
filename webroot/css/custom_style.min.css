@@ -1,11 +1,25 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1em;
+  color: #333; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700; }
+
 header nav.navbar {
   background-color: rgba(255, 255, 255, 0.8); }
-header .banner {
+header #login {
+  min-width: 250px; }
+
+.banner {
   position: relative;
   z-index: 0; }
-header .banner .carousel-inner .carousel-item {
+@media (min-width: 960px) {
+  .banner {
+    margin: 0 -15%; } }
+.banner .carousel-inner .carousel-item {
   z-index: 1; }
-header .banner .carousel-inner .carousel-item:before {
+.banner .carousel-inner .carousel-item:before {
   content: "";
   display: block;
   position: absolute;
@@ -18,29 +32,108 @@ header .banner .carousel-inner .carousel-item:before {
   background-image: -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
   background-image: -ms-linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
   z-index: 3; }
-header .banner .carousel-inner .carousel-item img {
+.banner .carousel-inner .carousel-item img {
   z-index: 2; }
-header .banner .carousel-inner .carousel-item .carousel-caption {
+.banner .carousel-inner .carousel-item .carousel-caption {
   z-index: 4; }
-header .banner .carousel-control-prev, header .banner .carousel-control-next {
+.banner .carousel-control-prev, .banner .carousel-control-next {
   z-index: 5; }
-header #login {
-  min-width: 250px; }
 
 span.required {
   color: red; }
 
-ul.events li.event:hover {
+section#home {
+  padding: 10px 0; }
+section#home h1.title {
+  margin: 5px 0; }
+section#home ul.events {
+  padding: 10px 0;
+  flex-wrap: wrap; }
+section#home ul.events li.event:hover {
   box-shadow: 0 0.2rem 0.35rem rgba(0, 0, 0, 0.3) !important;
   -webkit-box-shadow: 0 0.2rem 0.35rem rgba(0, 0, 0, 0.3) !important;
   -moz-box-shadow: 0 0.2rem 0.35rem rgba(0, 0, 0, 0.3) !important;
   -ms-box-shadow: 0 0.2rem 0.35rem rgba(0, 0, 0, 0.3) !important; }
-ul.events li.event .detail-event span {
+section#home ul.events li.event .detail-event span {
   display: block; }
-ul.events li.event .detail-event span.data-inicio, ul.events li.event .detail-event span.data-fim {
+section#home ul.events li.event .detail-event span.data-inicio, section#home ul.events li.event .detail-event span.data-fim {
   font-size: 0.7em; }
-ul.events .card-footer a {
+section#home ul.events .card-footer a {
   font-size: 0.7em; }
+
+#event .detail {
+  border-bottom: 1px solid #e5e5e5; }
+#event .detail .info .intro {
+  font-weight: 300;
+  font-size: 0.8em; }
+#event .detail .calendar ul {
+  display: flex;
+  flex-direction: column;
+  padding: 5% 7%; }
+#event .detail .calendar ul li.nav-item {
+  font-size: 0.8em;
+  display: block;
+  padding: 2px 0; }
+#event .activities {
+  padding: 10px 0; }
+#event .activities #atividades #lista-atividades {
+  position: relative; }
+#event .activities #atividades #lista-atividades .tab-pane {
+  padding: 0;
+  margin: 0; }
+#event .activities #atividades #lista-atividades .tab-pane:not([class~='show']) {
+  display: none; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck {
+  flex-direction: column; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card {
+  margin: 10px 0; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body {
+  display: flex;
+  flex-direction: row;
+  padding: 0; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .data-hora {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 15%;
+  text-align: center;
+  color: #f9f9f9;
+  background-color: #2F80ED; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .data-hora.warning {
+  background-color: #F2C94C; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .data-hora.end {
+  background-color: #EB5757; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .data-hora span.hora, #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .data-hora small {
+  align-self: center;
+  padding: 5px;
+  display: block; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .data-hora span.hora {
+  font-size: 2.5em;
+  font-weight: 700; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text {
+  flex-grow: 10; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text .titulo {
+  padding: 5px 10px; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text .autor, #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text .local {
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 0.7em; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .lb-seleciona {
+  flex-grow: 1;
+  align-self: center;
+  padding: 10px;
+  text-align: right;
+  font-size: 0.7em; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .lb-seleciona label {
+  display: block; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer {
+  padding: 5px 10px; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer a.arrow {
+  display: inline-block; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer .foot-detail {
+  font-size: 0.8em; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer .foot-detail div {
+  padding: 10px 0; }
 
 footer.copyright {
   font-size: 0.8em; }

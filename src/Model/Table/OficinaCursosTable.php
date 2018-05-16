@@ -44,6 +44,7 @@ class OficinaCursosTable extends Table
             ->setForeignKey('oficina_dependente');
         
         $this->hasOne('DataHoras')
+            ->setBindingKey('data_hora_iddata_hora')
             ->setForeignKey('iddata_hora');
         
         $this->hasOne('Eventos')
@@ -56,6 +57,7 @@ class OficinaCursosTable extends Table
             ->setForeignKey('salas_idsalas');
         
         $this->hasOne('TipoOficinas')
+            ->setForeignKey('tipo_oficina_idtipo_oficina')
             ->setForeignKey('idtipo_oficina');
         
         $this->hasOne('Responsavel')

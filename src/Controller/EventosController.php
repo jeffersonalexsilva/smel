@@ -22,6 +22,7 @@ class EventosController extends AppController
         $slug = str_replace([".","[","]","(",")","select","delete","from","where","*"], "", $slug);
         $this -> loadModel('Eventos');
         $query = $this -> Eventos -> find('all', array('conditions' => array('Eventos.slug'=>$slug)));
+        $query->contain(['OficinaCursos'=>'DataHoras','DataHoras']);
         $evento = $query->first();
         
         $this->set('evento',$evento);     
