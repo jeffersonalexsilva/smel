@@ -1,20 +1,16 @@
-<aside class="modal" id="terms-conditions">
-	<div class="center">
-		<h6 class="title-terms">Termos e condições</h6>
-		<pre>
-		
-		</pre>
-	</div>
-</aside>
-<aside class="modal" id="terms-privacity">
-	<div class="center">
-		<h6 class="title-terms">Política de privacidade</h6>
-		<pre>
-		
-		</pre>
-	</div>
-	
-</aside>
-<footer id="footer-page" class="copyright">
-	<aside>©2017-2018 | Sistema de Inscrições. Desenvolvido por <a href="http://www.interagencia.com.br">Interagência</a></aside>
+<footer id="footer-page" class="container pt-5 copyright">
+	<ul class="nav">
+		<li class="nav-item">
+			<a class="nav-link" href="#">Política de privacidade</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Condições de uso</a>
+		</li>
+	</ul>
+	<aside class="col align-self-center">©2016-2018 | Sistema de Inscrições. Desenvolvido por <a href="http://www.jeffersonalex.com.br">Jefferson Alex</a></aside>
 </footer>
+	<script>
+		jQuery(document).ready(function(){
+			jQuery('#loader').removeClass('active');
+		});
+	</script>
