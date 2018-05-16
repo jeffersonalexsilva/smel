@@ -5,7 +5,7 @@
             <?= $this->Html->image('banners/news/banner-'.$e->slug.'.jpg', ['alt' => $e->titulo,'class'=>'img-fluid d-block w-100']); ?>
             <div class="carousel-caption d-none d-md-block">
                 <h4><?= $e->titulo; ?></h4>
-                <p><?= $e->descricao;?> <?= $this->Html->link('Veja mais aqui',['controller' => 'eventos','action' => 'e',$e->slug],['class'=>'btn btn-sm px-3 btn-light']); ?></p>
+                <p><?= substr($e->descricao, 0, 50);?> <?= $this->Html->link('Veja mais aqui',['controller' => 'eventos','action' => 'e',$e->slug],['class'=>'btn btn-sm px-3 btn-light']); ?></p>
             </div>
         </div>
     <?php } ?>
