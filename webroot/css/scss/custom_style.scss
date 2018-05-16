@@ -120,7 +120,6 @@ section#home{
                                     flex-direction: column;
                                     justify-content: center;
                                     width: 15%;
-                                    padding: 10px;
                                     text-align: center;
                                     color: $white;
                                     background-color: $bg_data;
@@ -142,13 +141,21 @@ section#home{
                                 }
                                 .card-text{
                                     flex-grow: 10;
-                                    padding: 10px;
+                                    .titulo{
+                                        padding: 5px 10px;
+                                    }
+                                    .autor,.local{
+                                        padding: 5px 10px;
+                                        margin: 0;
+                                        font-size: $font_size_default - 0.3;
+                                    }
                                 }
                                 .lb-seleciona{
                                     flex-grow: 1;
                                     align-self: center;
                                     padding: 10px;
                                     text-align: right;
+                                    font-size: $font_size_default - 0.3;
                                     label{
                                         display: block;
                                     }
@@ -157,7 +164,7 @@ section#home{
                             .card-footer{
                                 padding: 5px 10px;
                                 a.arrow{
-                                    display: block;
+                                    display: inline-block;
                                 }
                                 .foot-detail{
                                     font-size: $font_size_default - 0.2;

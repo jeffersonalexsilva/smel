@@ -1,3 +1,7 @@
+<?php 
+	$sessao = $this->request->getSession();
+	$usuario = $sessao->check('usuario')?$sessao->read('usuario'):null;
+?>
 <section id="atividades" class="col-md-12">
 	<ul class="nav nav-tabs" id="dias" role="tablist">
 		<?php foreach($datas as $key => $d) { ?>
@@ -32,11 +36,9 @@
 								</small>
 							</div>
 							<div class="card-text">
-								<div class="txt-descricao">
-									<p class="titulo"><?= $oficina ->titulo; ?></p>
-									<em class="autor">Por: <strong><?= $oficina ->instrutor; ?></strong></em>
-									<div class="local">Local: <?= $oficina->local;?></div>
-								</div>
+								<h5 class="titulo"><?= $oficina ->titulo; ?></h5>
+								<div class="autor"><i class="fas fa-chalkboard-teacher"></i> <?= $oficina ->instrutor; ?></div>
+								<address class="local"><i class="fa fa-map-marker-alt"></i> <?= $oficina->local;?></address>
 							</div>
 							<?php if($oficina->vagas_restantes > 0) { ?>
 								<div class="lb-seleciona">
@@ -49,7 +51,13 @@
 							<?php } ?>
 						</div>
 						<div class="card-footer detalhes">
-							<?= $this->Html->link($this->Html->image('icon-down-arrow.svg',['alt'=>'Detalhes']),'#detalhe-'.$oficina->idoficina_curso,['data-toggle'=>'collapse','aria-expanded'=>'false','aria-controls'=>'detalhe-'.$oficina->idoficina_curso,'class'=>'arrow','escape'=>false]);?>
+							<div class="clearfix">
+								<?= $this->Html->link('<i class="fas fa-angle-down"></i>','#detalhe-'.$oficina->idoficina_curso,['data-toggle'=>'collapse','aria-expanded'=>'false','aria-controls'=>'detalhe-'.$oficina->idoficina_curso,'class'=>'btn btn-link float-left','escape'=>false]);?>
+								<?php if($usuario && $usuario->admin){
+									echo $this->Html->link('<i class="fas fa-trash"></i>',['controller'=>'admin','action'=>'exclui_atividade',$oficina->idoficina_curso],['escape'=>false,'class'=>'btn btn-link float-right']);
+									echo $this->Html->link('<i class="fas fa-edit"></i>',['controller'=>'admin','action'=>'edita_atividade',$oficina->idoficina_curso],['escape'=>false,'class'=>'btn btn-link float-right']);
+								} ?>
+							</div>
 							<div class="collapse foot-detail" id="detalhe-<?= $oficina->idoficina_curso;?>">
 								<div class="resumo"><strong>Resumo:</strong> <?= $oficina->resumo;?></div>
 								<div class="observacao"><strong>Observações:</strong> <?= $oficina->observacao;?></div>

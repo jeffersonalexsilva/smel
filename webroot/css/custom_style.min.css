@@ -96,7 +96,6 @@ section#home ul.events .card-footer a {
   flex-direction: column;
   justify-content: center;
   width: 15%;
-  padding: 10px;
   text-align: center;
   color: #f9f9f9;
   background-color: #2F80ED; }
@@ -112,19 +111,25 @@ section#home ul.events .card-footer a {
   font-size: 2.5em;
   font-weight: 700; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text {
-  flex-grow: 10;
-  padding: 10px; }
+  flex-grow: 10; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text .titulo {
+  padding: 5px 10px; }
+#event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text .autor, #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .card-text .local {
+  padding: 5px 10px;
+  margin: 0;
+  font-size: 0.7em; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .lb-seleciona {
   flex-grow: 1;
   align-self: center;
   padding: 10px;
-  text-align: right; }
+  text-align: right;
+  font-size: 0.7em; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-body .lb-seleciona label {
   display: block; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer {
   padding: 5px 10px; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer a.arrow {
-  display: block; }
+  display: inline-block; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer .foot-detail {
   font-size: 0.8em; }
 #event .activities #atividades #lista-atividades .tab-pane .card-deck .card .card-footer .foot-detail div {
